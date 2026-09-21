@@ -25,7 +25,12 @@ const HomeScreen = () => {
                 <Text className='text-3xl font-bold px-4 mb-2'>movies app</Text>
                 <MainSlideshow movies={nowPlayingQuery.data ?? []} />
                 <MovieHorizontalList movies={popularQuery.data ?? []} title='trending' className='mb-5' />
-                <MovieHorizontalList movies={topRatedQuery.data ?? []} title='top rated' className='mb-5' />
+                <MovieHorizontalList
+                    movies={topRatedQuery.data?.pages.flat() ?? []}
+                    title='top rated'
+                    className='mb-5'
+                    loadNextPage={topRatedQuery.fetchNextPage}
+                />
                 <MovieHorizontalList movies={upcomingQuery.data ?? []} title='upcoming' className='mb-5' />
             </View>
         </ScrollView>

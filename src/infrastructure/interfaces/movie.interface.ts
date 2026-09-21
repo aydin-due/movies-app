@@ -7,3 +7,18 @@ export interface Movie {
     poster: string;
     backdrop: string;
 }
+
+export interface MovieDetails extends Movie {
+    genres: string[]
+    duration: number
+    budget: number
+    originalTitle: string
+    productionCompanies: string[]
+}
+
+export interface MovieCast {
+    id: number
+    name: string
+    character: string
+    profile: string
+}
